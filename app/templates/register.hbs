@@ -1,0 +1,22 @@
+<div class="col s12 m6">
+<form {{action 'register' on='submit'}}>
+  <br>
+  <div class= "red-text">
+    {{#if error}}
+      Invalid username/password.
+    {{/if}}
+    {{#if emailExistsError }}
+      Email already in use, please choose a different one.
+    {{/if}}
+  </div>
+  {{input id='identification' placeholder='Email' value=identification}}
+
+  {{input id='password' placeholder='Password' type='password' value=password}}
+  {{input id='passwordConfirmation' placeholder='Password' type='password' value=passwordConfirmation}}
+
+  {{md-btn text='Submit'
+	action='register'
+  class='teal lighten-3'
+  }}
+</form>
+</div>

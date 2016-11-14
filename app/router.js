@@ -7,6 +7,16 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('index', { path: '/' });
+  // User oriented routes
+  this.route('login');
+  this.route('register');
+  this.route('logout');
+  // Business routes
+  this.route('categories', function() {
+    this.route('list', { path: '/' });
+    this.route('new');
+  });
 });
 
 export default Router;

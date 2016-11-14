@@ -41,6 +41,27 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+    ENV['ember-simple-auth-token'] = {
+      refreshAccessTokens: true,
+      timeFactor: 1,
+      refreshLeeway: 300, // Refresh the token 5 minutes (300s) before it expires.
+      serverTokenEndpoint: '/authenticate',
+      identificationField: 'email',
+      //passwordField: 'password',
+      //tokenPropertyName: 'token',
+      authorizationPrefix: '',
+      //authorizationHeaderName: 'Authorization',
+      //headers: {},
+    };
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' 'unsafe-inline'",
+    'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+    'font-src': "'self' fonts.gstatic.com",
+    'connect-src': "'self'",
+    'img-src': "'self' data:",
+    'media-src': "'self'"
+  };
 
   return ENV;
 };

@@ -1,0 +1,39 @@
+{{#md-navbar name='Finance Fitness' class='blue-grey'}}
+  <!-- A workaround to get the "active" class
+    to apply to the active <li> automatically -->
+
+  <!-- Index route   -->
+  {{#link-to 'index' tagName='li'}}
+    {{link-to 'Home' 'index'}}
+  {{/link-to}}
+
+  <!-- If user is authenticated, display business routes
+  followed by a logout. -->
+  {{#if session.isAuthenticated }}
+
+  {{#link-to 'categories' tagName='li'}}
+    {{link-to 'Categories' 'categories'}}
+  {{/link-to}}
+
+
+  <span {{action 'logout'}} >
+    {{#link-to 'logout' tagName='li'}}
+      {{link-to 'Logout' 'logout'}}
+    {{/link-to}}
+  </span>
+
+
+  {{else}}
+  <!-- Login and register links if not authenticated -->
+    {{#link-to 'login' tagName='li'}}
+      {{link-to 'Login' 'login'}}
+    {{/link-to}}
+    {{#link-to 'register' tagName='li'}}
+      {{link-to 'Register' 'register'}}
+    {{/link-to}}
+  {{/if}}
+
+{{/md-navbar}}
+<div class="container">
+{{outlet}}
+</div>

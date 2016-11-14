@@ -1,0 +1,21 @@
+<div class="col s12 m6">
+<form {{action 'authenticate' on='submit'}}>
+  <br>
+
+
+  {{input id='identification' placeholder='Email' value=identification}}
+
+  {{input id='password' placeholder='Password' type='password' value=password}}
+  <div class= "red-text">
+
+  {{md-btn text='Submit'
+	action='authenticate'
+  class='teal lighten-3'
+  }}
+  {{#if error}}
+    &nbsp;&nbsp;&nbsp;Invalid username/password.
+  {{/if}}
+</div>
+
+</form>
+</div>
