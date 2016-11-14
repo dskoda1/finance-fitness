@@ -11,9 +11,15 @@
   followed by a logout. -->
   {{#if session.isAuthenticated }}
 
-  {{#link-to 'categories' tagName='li'}}
+  {{#link-to 'profile' tagName='li'}}
+    {{link-to user.email 'profile'}}
+  {{/link-to}}
+  <!-- {{#link-to 'categories' tagName='li'}}
     {{link-to 'Categories' 'categories'}}
   {{/link-to}}
+  {{#link-to 'purchases' tagName='li'}}
+    {{link-to 'Purchases' 'purchases'}}
+  {{/link-to}} -->
 
 
   <span {{action 'logout'}} >
